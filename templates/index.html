@@ -2,25 +2,27 @@
 <html>
 
 <head>
-    <title> Calculadora IMC</title> <!-- Se não tiver title o titulo será o nome do arquivo-->
-
+    <title> Cálculo de temperatura</title> <!-- Se não tiver title o titulo será o nome do arquivo-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 </head>
 
 <body>
     <main class="container">
-        <h1>Calculadora IMC</h1>
+        <h1>Conversor de Temperatura</h1>
         <section id="formulario"> <!--Cria seção-->
             <form method="POST">
-                Peso (kg) <input type="number" name="peso" step="0.1"> <!-- step faz a setinha aumenta de 0.1 em 0.1 -->
+                Digite a temperatura (ºC): <input type="number" name="temp" step="0.1"> <!-- step faz a setinha aumenta de 0.1 em 0.1 -->
                 <p></p> <!-- Pular linha (<p> deixa mais espaço que o <br>)-->
-                Altura (cm) <input type="number" name="altura">
-                <p></p>
-                <button type="submit" id="botoes">Calcular IMC</button>
+                <button type="submit" id="botoes">Calcular</button>
             </form>
         </section>
+        
+        {% if fahre is not none %}
+        <p><strong>{{ temp }} °C é igual a {{ fahre }} °F</strong></p>
+        {% endif %}
 
-        {% if imc%} <!--Para usar código python -->
-        <h2>Resultado: {{imc}}</h2> <!--Duas chaves para usar váriavel do python -->
-        <h2>Classificação: {{classificacao}}</h2>
-        {%endif%}<!DOCTYPE html> <!-- Recebe html 5-->
+        {% if erro %}
+            <p style="color: red;">{{ erro }}</p>
+        {% endif %}
+    </main>
 <html>
